@@ -1,0 +1,81 @@
+---
+title: Typescript - Com exemplos
+description:
+imageHeader: https://i.imgur.com/Te8hqVv.jpg
+cover: https://i.imgur.com/Te8hqVv.jpg
+date: 2023-07-12 10:45
+modifiedDate:
+channel: Dev Corporation
+category: Team Blklight
+tags:
+  - Ideia
+  - Front-end
+  - Projetos
+  - Artigos
+layout: simple-layout
+filter:
+typography:
+draft: false
+authors:
+  - name: Ultimate Mercer
+    quote: Finalmente sinto que o que eu desenvolvi está relativamente OK, mas agora é seguir aprimorando e evoluindo mais essa ideia!
+gallery:
+---
+
+TypeScript é uma linguagem de programação de tipagem estática que é baseada em JavaScript. Ele adiciona tipos ao JavaScript e fornece recursos avançados como classes, interfaces e genéricos. Aqui estão alguns exemplos de como usar o TypeScript:
+
+    Tipos básicos:
+
+Você pode especificar o tipo de uma variável em TypeScript, por exemplo:
+
+```ts
+let message: string = "Hello, world!";
+```
+
+    Interfaces:
+
+Você pode usar interfaces para definir o tipo de um objeto em TypeScript:
+
+```ts
+interface Person {
+  name: string;
+  age: number;
+}
+
+let person: Person = {
+  name: "John Doe",
+  age: 32,
+};
+```
+
+    Classes:
+
+Você pode usar classes para criar objetos em TypeScript:
+
+```ts
+class Car {
+  make: string;
+  model: string;
+
+  constructor(make: string, model: string) {
+    this.make = make;
+    this.model = model;
+  }
+}
+
+let car = new Car("Toyota", "Camry");
+```
+
+    Genéricos:
+
+Você pode usar genéricos para escrever código mais genérico em TypeScript:
+
+```ts
+function identity<T>(arg: T): T {
+  return arg;
+}
+
+let output = identity<string>("Hello, world!");
+```
+
+Estes são apenas alguns exemplos de como usar o TypeScript. Para obter mais informações, consulte a documentação oficial do TypeScript: https://www.typescriptlang.org/docs.

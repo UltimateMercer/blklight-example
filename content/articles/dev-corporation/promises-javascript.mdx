@@ -1,0 +1,52 @@
+---
+title: Promises - Javascript
+description:
+imageHeader: https://i.imgur.com/OI6Iuq2.jpg
+cover: https://i.imgur.com/OI6Iuq2.jpg
+date: 2023-07-12 11:05
+modifiedDate:
+channel: Dev Corporation
+category: Team Blklight
+tags:
+  - Ideia
+  - Front-end
+  - Projetos
+  - Artigos
+layout: simple-layout
+filter:
+typography:
+draft: false
+authors:
+  - name: Ultimate Mercer
+    quote: Finalmente sinto que o que eu desenvolvi está relativamente OK, mas agora é seguir aprimorando e evoluindo mais essa ideia!
+gallery:
+---
+
+As Promises são uma forma de lidar com operações assíncronas em JavaScript. Elas representam o resultado futuro de uma operação e permitem que você especifique o que acontecerá quando a operação for bem-sucedida ou falhar. Isso torna mais fácil lidar com operações que podem demorar um tempo para ser concluídas, como requisições ajax, leitura de arquivos ou operações de I/O(Input/Output).
+
+Aqui está um exemplo simples de como usar Promises:
+
+```js
+// Criação de uma Promise
+let promise = new Promise((resolve, reject) => {
+  let result = true;
+  if (result) {
+    resolve("Success");
+  } else {
+    reject("Failure");
+  }
+});
+
+// Consumindo a Promise
+promise
+  .then((result) => {
+    console.log(result); // Success
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
+Neste exemplo, criamos uma Promise que representa a operação de verificar se um resultado é verdadeiro ou falso. Se o resultado for verdadeiro, a Promise é resolvida e o resultado "Success" é passado para o manipulador then. Se o resultado for falso, a Promise é rejeitada e o resultado "Failure" é passado para o manipulador catch.
+
+Note que você pode encadear vários manipuladores then e catch para lidar com diferentes casos de sucesso ou erro de forma encadeada. Isso é útil quando você precisa executar várias operações em sequência, baseadas no resultado da operação anterior.

@@ -1,0 +1,80 @@
+---
+title: Sobre useEffect
+description:
+imageHeader: https://i.imgur.com/OI6Iuq2.jpg
+cover: https://i.imgur.com/OI6Iuq2.jpg
+date: 2023-07-12 11:20
+modifiedDate:
+channel: Dev Corporation
+category: Team Blklight
+tags:
+  - Ideia
+  - Front-end
+  - Projetos
+  - Artigos
+layout: simple-layout
+filter:
+typography:
+draft: false
+authors:
+  - name: Ultimate Mercer
+    quote: Finalmente sinto que o que eu desenvolvi está relativamente OK, mas agora é seguir aprimorando e evoluindo mais essa ideia!
+gallery:
+---
+
+O useEffect é uma função do React que é usada para realizar efeitos colaterais em sua aplicação. É um dos Hooks mais comuns e versáteis do React, e permite que você faça coisas como carregar dados de uma API, manipular o DOM ou configurar event listeners.
+
+Aqui está um exemplo básico de uso do useEffect:
+
+```js
+import React, { useEffect, useState } from "react";
+
+const Example = () => {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `Você clicou ${count} vezes`;
+  }, [count]);
+
+  return (
+    <div>
+      <p>Você clicou {count} vezes</p>
+      <button onClick={() => setCount(count + 1)}>Clique aqui</button>
+    </div>
+  );
+};
+
+export default Example;
+```
+
+Neste exemplo, o useEffect está sendo usado para atualizar o título da página de acordo com o número de cliques. Ele é acionado a cada vez que o contador (count) é alterado, graças ao segundo argumento (um array de dependências), que determina quais variáveis devem ser observadas pelo useEffect.
+
+Aqui está outro exemplo, mostrando como usar o useEffect para carregar dados de uma API:
+
+```js
+import React, { useEffect, useState } from "react";
+
+const Example = () => {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch("https://my-api.com/data")
+      .then((response) => response.json())
+      .then((json) => setData(json));
+  }, []);
+
+  return (
+    <div>
+      {data === null ? (
+        <p>Carregando...</p>
+      ) : (
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      )}
+    </div>
+  );
+};
+
+export default Example;
+```
+
+Neste exemplo, o useEffect é usado para carregar os dados da API quando o componente é montado. O segundo argumento, um array vazio, significa que o useEffect será executado apenas uma vez, quando o componente for montado.

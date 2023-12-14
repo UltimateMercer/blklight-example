@@ -1,0 +1,40 @@
+---
+title: Closures - Javascript
+description:
+imageHeader: https://i.imgur.com/OI6Iuq2.jpg
+cover: https://i.imgur.com/OI6Iuq2.jpg
+date: 2023-07-12 10:45
+modifiedDate:
+channel: Dev Corporation
+category: Team Blklight
+tags:
+  - Ideia
+  - Front-end
+  - Projetos
+  - Artigos
+layout: simple-layout
+filter:
+typography:
+draft: false
+authors:
+  - name: Ultimate Mercer
+    quote: Finalmente sinto que o que eu desenvolvi está relativamente OK, mas agora é seguir aprimorando e evoluindo mais essa ideia!
+gallery:
+---
+
+Uma closure em JavaScript é uma função que se lembra de seu escopo léxico, ou seja, onde foi definida, mesmo quando é invocada fora desse escopo. Em outras palavras, uma closure é uma função que mantém uma referência ao seu contexto de criação, incluindo as variáveis e funções que estavam disponíveis no escopo léxico na época da sua criação.
+
+Aqui está um exemplo simples de closure:
+
+```js
+function outerFunction(x) {
+  return function innerFunction(y) {
+    return x + y;
+  };
+}
+
+const add5 = outerFunction(5);
+console.log(add5(3)); // Output: 8
+```
+
+Neste exemplo, a função outerFunction retorna a função innerFunction, que tem acesso ao argumento x passado para outerFunction, mesmo quando é invocada fora de seu escopo. Quando a variável add5 é definida como o resultado da invocação de outerFunction(5), ela armazena uma referência a innerFunction com o argumento x igual a 5. Portanto, quando add5 é invocada com o argumento 3, o valor retornado é 8.

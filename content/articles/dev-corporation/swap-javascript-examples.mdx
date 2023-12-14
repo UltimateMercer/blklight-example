@@ -1,0 +1,73 @@
+---
+title: Swap de variáveis no Javascript
+description:
+imageHeader: https://i.imgur.com/OI6Iuq2.jpg
+cover: https://i.imgur.com/OI6Iuq2.jpg
+date: 2023-07-11 14:45
+modifiedDate:
+channel: Dev Corporation
+category: Team Blklight
+tags:
+  - Ideia
+  - Front-end
+  - Projetos
+  - Artigos
+layout: basic-layout
+filter:
+typography:
+draft: false
+authors:
+  - name: Ultimate Mercer
+    quote: Finalmente sinto que o que eu desenvolvi está relativamente OK, mas agora é seguir aprimorando e evoluindo mais essa ideia!
+gallery:
+---
+
+Há três maneiras comuns de fazer o swap de duas variáveis em JavaScript:
+
+<Tabs defaultValue="1" className="w-full">
+  <TabsList>
+    <TabsTrigger value="1">1</TabsTrigger>
+    <TabsTrigger value="2">2</TabsTrigger>
+    <TabsTrigger value="3">3</TabsTrigger>
+  </TabsList>
+  <TabsContent value="1">
+
+    Usando uma variável temporária:
+
+    ```js
+      let x = 10;
+      let y = 20;
+
+      let temp = x;
+      x = y;
+      y = temp;
+    ```
+
+  </TabsContent>
+  <TabsContent value="2">
+    
+    Usando a aritmética de desestruturação:
+
+    ```js
+      let x = 10;
+      let y = 20;
+
+      [x, y] = [y, x];
+    ```
+
+  </TabsContent>
+  <TabsContent value="3">
+
+    Usando operações bit-a-bit:
+
+    ```js
+      let x = 10;
+      let y = 20;
+
+      x = x ^ y;
+      y = x ^ y;
+      x = x ^ y;
+    ```
+
+  </TabsContent>
+</Tabs>

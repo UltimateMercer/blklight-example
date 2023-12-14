@@ -1,0 +1,71 @@
+---
+title: Como descobrir maior número em um array em Javascript
+description:
+imageHeader: https://i.imgur.com/Te8hqVv.jpg
+cover: https://i.imgur.com/Te8hqVv.jpg
+date: 2023-07-11 15:00
+modifiedDate:
+channel: Dev Corporation
+category: Team Blklight
+tags:
+  - Ideia
+  - Front-end
+  - Projetos
+  - Artigos
+layout: simple-layout
+filter:
+typography:
+draft: false
+authors:
+  - name: Ultimate Mercer
+    quote: Finalmente sinto que o que eu desenvolvi está relativamente OK, mas agora é seguir aprimorando e evoluindo mais essa ideia!
+gallery:
+---
+
+Há várias maneiras de encontrar o maior número em um array em JavaScript. Aqui estão algumas das maneiras mais comuns:
+
+<Tabs defaultValue="1" className="w-full">
+  <TabsList>
+    <TabsTrigger value="1">Usando Math.max()</TabsTrigger>
+    <TabsTrigger value="2">Usando reduce()</TabsTrigger>
+    <TabsTrigger value="3">Usando for loop</TabsTrigger>
+  </TabsList>
+  <TabsContent value="1">
+
+    Usando a função Math.max() e o operador de espalhamento (spread operator):
+
+    ```js
+      let numbers = [1, 5, 2, 8, 3];
+      let maxNumber = Math.max(...numbers);
+      console.log(maxNumber); // 8
+    ```
+
+  </TabsContent>
+  <TabsContent value="2">
+    
+    Usando o método reduce():
+
+    ```js
+      let numbers = [1, 5, 2, 8, 3];
+      let maxNumber = numbers.reduce((a, b) => Math.max(a, b));
+      console.log(maxNumber); // 8
+    ```
+
+  </TabsContent>
+  <TabsContent value="3">
+
+    Usando um for loop:
+
+    ```js
+      let numbers = [1, 5, 2, 8, 3];
+      let maxNumber = -Infinity;
+      for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > maxNumber) {
+          maxNumber = numbers[i];
+        }
+      }
+      console.log(maxNumber); // 8
+    ```
+
+  </TabsContent>
+</Tabs>

@@ -1,0 +1,112 @@
+---
+title: O que é Solidity
+description:
+imageHeader: https://i.imgur.com/OI6Iuq2.jpg
+cover: https://i.imgur.com/OI6Iuq2.jpg
+date: 2023-07-12 11:05
+modifiedDate:
+channel: Dev Corporation
+category: Team Blklight
+tags:
+  - Ideia
+  - Front-end
+  - Projetos
+  - Artigos
+layout: simple-layout
+filter:
+typography:
+draft: false
+authors:
+  - name: Ultimate Mercer
+    quote: Finalmente sinto que o que eu desenvolvi está relativamente OK, mas agora é seguir aprimorando e evoluindo mais essa ideia!
+gallery:
+---
+
+Solidity é uma linguagem de programação específica para a plataforma Ethereum, usada para escrever contratos inteligentes (smart contracts). É baseada em JavaScript e C++ e permite a criação de aplicativos descentralizados para a Web3.
+
+Vantagens de Solidity incluem a capacidade de criar contratos inteligentes seguros e confiáveis, a facilidade de uso com base em JavaScript e C++, e a integração com a rede Ethereum, o que facilita a implementação de aplicativos descentralizados.
+
+Desvantagens incluem a complexidade da linguagem e a falta de maturidade, o que pode resultar em vulnerabilidades de segurança. Além disso, a plataforma Ethereum ainda tem limitações de escalabilidade, o que pode afetar a performance dos contratos escritos em Solidity.
+
+Exemplos de aplicativos escritos em Solidity incluem:
+
+- Mercados de ativos tokenizados
+- Aplicativos de votação descentralizados
+- Sistemas de pagamento baseados em blockchain
+- Plataformas de crowdfunding descentralizadas
+- Jogos baseados em blockchain.
+
+Aqui estão alguns exemplos de códigos em Solidity:
+
+Exemplo 1: Contrato básico de token ERC-20:
+
+```solidity
+pragma solidity ^0.8.0;
+
+contract Token {
+  string public name;
+  string public symbol;
+  uint8 public decimals;
+  uint256 public totalSupply;
+  mapping(address => uint256) public balanceOf;
+
+    constructor(
+        uint256 initialSupply,
+        string memory tokenName,
+        string memory tokenSymbol,
+        uint8 tokenDecimals
+    ) public {
+        totalSupply = initialSupply * 10 ** uint256(tokenDecimals);
+        balanceOf[msg.sender] = totalSupply;
+        name = tokenName;
+        symbol = tokenSymbol;
+        decimals = tokenDecimals;
+    }
+
+    function transfer(address _to, uint256 _value) public returns (bool) {
+        require(balanceOf[msg.sender] >= _value, "Insufficient balance");
+        require(balanceOf[_to] + _value >= balanceOf[_to], "Overflow");
+        balanceOf[msg.sender] -= _value;
+        balanceOf[_to] += _value;
+        return true;
+    }
+
+}
+
+```
+
+```solidity
+pragma solidity ^0.8.0;
+
+contract Auction {
+  address public seller;
+  address public highestBidder;
+  uint public highestBid;
+
+    event NewBid(address bidder, uint bid);
+
+    constructor() public {
+        seller = msg.sender;
+    }
+
+    function bid() public payable {
+        require(msg.value > highestBid, "Bid too low");
+        require(highestBidder != address(0), "Auction has not started yet");
+        require(highestBidder != msg.sender, "You cannot bid on your own auction");
+        highestBidder.transfer(msg.value);
+        highestBid = msg.value;
+        emit NewBid(msg.sender, msg.value);
+    }
+
+    function auctionEnd() public {
+        require(msg.sender == seller, "Only seller can end the auction");
+        require(highestBidder != address(0), "Auction has not started yet");
+        highestBidder.transfer(highestBid);
+        seller.transfer(address(this).balance);
+    }
+
+}
+
+```
+
+Estes são apenas alguns exemplos básicos de códigos Solidity. Há muito mais possibilidades e casos de uso que podem ser implementados com a linguagem.
